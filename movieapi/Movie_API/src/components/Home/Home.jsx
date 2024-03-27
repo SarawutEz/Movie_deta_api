@@ -16,7 +16,7 @@ function Home() {
     useEffect(() => {
         const fetchMovies = async () => {
             const searchKey = search ? search : "Thor";
-            const res = await movieApi.get(`?apikey=${APIKey}&s=${searchKey}&type=movie`)
+            const res = await movieApi.get(`?apikey=${APIKey}&s=${searchKey}&type=`)
 
             setTimeout(() => {
                 dispatch(addMovie(res.data.Search))
@@ -28,11 +28,14 @@ function Home() {
 
     return (
         <>
-            <div className='container mx-aut'>
+            <div className=''>
                 <input type="text" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
                 <MovieListing />
             </div>
         </>
+
+
+
     )
 }
 
